@@ -15,3 +15,8 @@ function getHumanChoice() {
 }
 
 console.log(getHumanChoice());
+
+// step 4 - declare the players score
+
+let humanScore = 0;
+let computerScore = 0;
