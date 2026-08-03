@@ -6,6 +6,8 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
+const computerChoice = getComputerChoice();
+
 // console.log(getComputerChoice());
 
 // step 3 - get the human choice
@@ -22,10 +24,12 @@ let humanScore = 0;
 let computerScore = 0;
 
 // step 5 - write logic to play a single round
-function playRound(humanChoice, computerChoice) {
+function playRound(human, computer) {
   // easier to read variables
-  const human = humanChoice.toLowerCase();
-  const computer = computerChoice;
+  human = human.toLowerCase();
+  computer = computerChoice;
+
+  //   console.log(`Computer picked ${computerChoice}`);
 
   // round declaration
   let round = `human: ${human} \ncomputer: ${computer}`;
@@ -50,8 +54,10 @@ function playRound(humanChoice, computerChoice) {
     console.log(`You win this round! ${human} beats ${computer}!`);
   } else {
     computerScore++;
+    console.log(round);
     console.log(`Computer wins this round... ${computer} beats ${human}.`);
   }
+  console.log(`human ${humanScore} \ncomputer ${computerScore}`);
 }
 
-playRound(getHumanChoice(), getComputerChoice());
+playRound(getHumanChoice(), computerChoice);
