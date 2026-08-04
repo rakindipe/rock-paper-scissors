@@ -2,11 +2,9 @@
 
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
-  const randomIndex = Math.floor(Math.random() * choices.length);
+  let randomIndex = Math.floor(Math.random() * choices.length);
   return choices[randomIndex];
 }
-
-const computerChoice = getComputerChoice();
 
 // console.log(getComputerChoice());
 
@@ -27,7 +25,6 @@ let computerScore = 0;
 function playRound(human, computer) {
   // easier to read variables
   human = human.toLowerCase();
-  computer = computerChoice;
 
   //   console.log(`Computer picked ${computerChoice}`);
 
@@ -63,7 +60,16 @@ function playRound(human, computer) {
 // step 6 - logic for an entire game
 function playGame() {
   for (let round = 1; round <= 5; round++) {
+    const computerChoice = getComputerChoice(); // generates a fresh choice every time
     playRound(getHumanChoice(), computerChoice);
+  }
+
+  if (humanScore === computerScore) {
+    console.log(`It's a draw!`);
+  } else if (humanScore > computerScore) {
+    console.log(`You won!!!`);
+  } else {
+    console.log(`You lost to a computer...`);
   }
 }
 
