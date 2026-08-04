@@ -66,3 +66,5 @@ function playGame() {
     playRound(getHumanChoice(), computerChoice);
   }
 }
+
+playGame();
