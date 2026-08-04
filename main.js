@@ -51,11 +51,11 @@ function playRound(human, computer) {
   if (humanWins) {
     humanScore++;
     console.log(roundStr);
-    console.log(`You win this roundStr! ${human} beats ${computer}!`);
+    console.log(`You win this round! ${human} beats ${computer}!`);
   } else {
     computerScore++;
     console.log(roundStr);
-    console.log(`Computer wins this roundStr... ${computer} beats ${human}.`);
+    console.log(`Computer wins this round... ${computer} beats ${human}.`);
   }
   console.log(`human ${humanScore} \ncomputer ${computerScore}`);
 }
