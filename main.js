@@ -60,4 +60,9 @@ function playRound(human, computer) {
   console.log(`human ${humanScore} \ncomputer ${computerScore}`);
 }
 
-playRound(getHumanChoice(), computerChoice);
+// step 6 - logic for an entire game
+function playGame() {
+  for (let round = 1; round <= 5; round++) {
+    playRound(getHumanChoice(), computerChoice);
+  }
+}
