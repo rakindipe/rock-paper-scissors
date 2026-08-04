@@ -23,7 +23,7 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-// step 5 - write logic to play a single round
+// step 5 - write logic to play a single roundStr
 function playRound(human, computer) {
   // easier to read variables
   human = human.toLowerCase();
@@ -31,12 +31,12 @@ function playRound(human, computer) {
 
   //   console.log(`Computer picked ${computerChoice}`);
 
-  // round declaration
-  let round = `human: ${human} \ncomputer: ${computer}`;
+  // roundStr declaration
+  let roundStr = `human: ${human} \ncomputer: ${computer}`;
 
   // 1. check for a tie
   if (human === computer) {
-    console.log(round);
+    console.log(roundStr);
     console.log(`It's a tie! You both chose ${human}`);
     return;
   }
@@ -50,12 +50,12 @@ function playRound(human, computer) {
   // 3. increment score and log result based on the boolean
   if (humanWins) {
     humanScore++;
-    console.log(round);
-    console.log(`You win this round! ${human} beats ${computer}!`);
+    console.log(roundStr);
+    console.log(`You win this roundStr! ${human} beats ${computer}!`);
   } else {
     computerScore++;
-    console.log(round);
-    console.log(`Computer wins this round... ${computer} beats ${human}.`);
+    console.log(roundStr);
+    console.log(`Computer wins this roundStr... ${computer} beats ${human}.`);
   }
   console.log(`human ${humanScore} \ncomputer ${computerScore}`);
 }
