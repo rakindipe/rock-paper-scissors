@@ -59,10 +59,12 @@ function playRound(human, computer) {
 
 // step 6 - logic for an entire game
 function playGame() {
-  for (let round = 1; round <= 5; round++) {
-    const computerChoice = getComputerChoice(); // generates a fresh choice every time
-    playRound(getHumanChoice(), computerChoice);
-  }
+  // for (let round = 1; round <= 5; round++) {
+  //   const computerChoice = getComputerChoice(); // generates a fresh choice every time
+  //   playRound(getHumanChoice(), computerChoice);
+  // }
+  const computerChoice = getComputerChoice(); // generates a fresh choice every time
+  playRound(getHumanChoice(), computerChoice);
 
   if (humanScore === computerScore) {
     console.log(`It's a draw!`);
@@ -73,4 +75,22 @@ function playGame() {
   }
 }
 
-playGame();
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+
+// playRound(getHumanChoice(), getComputerChoice);
+
+rockBtn.addEventListener("click", () => {
+  playRound("rock", getComputerChoice());
+});
+
+paperBtn.addEventListener("click", () => {
+  playRound("paper", getComputerChoice());
+});
+
+scissorsBtn.addEventListener("click", () => {
+  playRound("scissors", getComputerChoice());
+});
+
+// playGame();
