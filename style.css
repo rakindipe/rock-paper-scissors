@@ -1,0 +1,228 @@
+/* =============================================
+   ROCK PAPER SCISSORS – Refreshed Stylesheet
+   for your existing HTML & JS structure
+   ============================================= */
+
+/* ----- global reset & base ----- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    background: linear-gradient(145deg, #0b0e1a 0%, #1a1f35 100%);
+    padding: 1.5rem;
+    margin: 0;
+}
+
+/* ----- main container (all elements are children of body) ----- */
+body > * {
+    max-width: 720px;
+    width: 100%;
+}
+
+/* ----- choice buttons (rock, paper, scissors) ----- */
+button[id="rock"],
+button[id="paper"],
+button[id="scissors"] {
+    min-width: 110px;
+    padding: 1rem 1.8rem;
+    margin: 0.4rem;
+    border: none;
+    border-radius: 3rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* individual colors */
+#rock {
+    background: linear-gradient(145deg, #7a5242, #4d3227);
+    border-bottom: 4px solid #b87a5a;
+}
+#rock:hover {
+    background: linear-gradient(145deg, #966552, #5f3f31);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 14px 35px rgba(180, 120, 80, 0.35);
+}
+
+#paper {
+    background: linear-gradient(145deg, #4a7a8a, #2b4f5c);
+    border-bottom: 4px solid #7ab8d4;
+}
+#paper:hover {
+    background: linear-gradient(145deg, #5c94a8, #36606e);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 14px 35px rgba(100, 180, 220, 0.35);
+}
+
+#scissors {
+    background: linear-gradient(145deg, #8a4a7a, #5a2f4a);
+    border-bottom: 4px solid #d47ab8;
+}
+#scissors:hover {
+    background: linear-gradient(145deg, #a85c94, #6f3a5e);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 14px 35px rgba(200, 120, 180, 0.35);
+}
+
+/* disabled state (during game over) */
+button[id="rock"]:disabled,
+button[id="paper"]:disabled,
+button[id="scissors"]:disabled {
+    opacity: 0.4;
+    transform: scale(0.95);
+    cursor: not-allowed;
+    box-shadow: none;
+    filter: grayscale(0.6);
+}
+
+/* ----- results container ----- */
+.results {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2.8rem;
+    padding: 2rem 2rem 1.8rem;
+    margin-top: 2.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* result paragraphs */
+#round-log {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    min-height: 3.2rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1rem;
+}
+
+#score-display {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 3rem;
+    padding: 0.6rem 1.2rem;
+    display: inline-block;
+    margin: 0.5rem auto 1rem;
+    letter-spacing: 1px;
+}
+
+#game-winner {
+    font-size: 1.9rem;
+    font-weight: 800;
+    min-height: 3.5rem;
+    padding: 0.6rem 0;
+    color: #f9d976;
+    text-shadow: 0 0 30px rgba(249, 217, 118, 0.2);
+}
+
+/* ----- reset button ----- */
+#reset-btn {
+    padding: 0.7rem 2.8rem;
+    border: none;
+    border-radius: 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: linear-gradient(145deg, #f9d976, #f39b7b);
+    color: #1a1f35;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 25px rgba(243, 155, 123, 0.25);
+    margin-top: 1rem;
+}
+#reset-btn:hover {
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 14px 35px rgba(243, 155, 123, 0.4);
+}
+#reset-btn:active {
+    transform: scale(0.94);
+}
+
+/* ----- layout helper for buttons (flex row) ----- */
+body {
+    flex-direction: column;
+    align-items: center;
+}
+/* arrange the three choice buttons in a row */
+body > button[id="rock"],
+body > button[id="paper"],
+body > button[id="scissors"] {
+    display: inline-block;
+    margin: 0.4rem;
+}
+/* ensure they wrap on small screens */
+@media (max-width: 480px) {
+    body > button[id="rock"],
+    body > button[id="paper"],
+    body > button[id="scissors"] {
+        display: block;
+        width: 80%;
+        margin: 0.6rem auto;
+    }
+}
+
+/* ----- responsive tweaks ----- */
+@media (max-width: 600px) {
+    .results {
+        padding: 1.5rem 1rem;
+        border-radius: 2rem;
+        margin-top: 1.5rem;
+    }
+    #round-log {
+        font-size: 1.2rem;
+    }
+    #score-display {
+        font-size: 1.3rem;
+        padding: 0.4rem 1rem;
+    }
+    #game-winner {
+        font-size: 1.5rem;
+    }
+    button[id="rock"],
+    button[id="paper"],
+    button[id="scissors"] {
+        min-width: 80px;
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    #round-log {
+        font-size: 1rem;
+    }
+    #score-display {
+        font-size: 1.1rem;
+    }
+    #game-winner {
+        font-size: 1.2rem;
+    }
+}
+
+/* ----- extra polish: glowing text on win/lose (optional) ----- */
+/* The JS doesn't add classes, but we can style text content if you want */
+/* For example, we could detect win/lose, but we keep it simple */
